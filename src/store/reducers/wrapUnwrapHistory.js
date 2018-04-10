@@ -141,9 +141,9 @@ const loadGNTWrapUnwrapsHistoryEpic = (address, config) => async (dispatch, getS
 
   const fromBlock = network.latestBlockNumber(getState()) - period.avgBlockPerActivePeriod();
   const toBlock = 'latest';
-
   const filterConfig = config ? config : { fromBlock, toBlock };
-  tokenContract.Transfer({ from: GNTBrokerAddress, to: WGNTContract.address },{fromBlock: 6523450 - 10000})
+
+  tokenContract.Transfer({ from: GNTBrokerAddress, to: WGNTContract.address },{ fromBlock })
     .then(
       async (err, wrapUnwrapEvent) => {
         const blockInfo = (

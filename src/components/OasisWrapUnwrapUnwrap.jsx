@@ -2,15 +2,20 @@ import React, { PureComponent } from 'react';
 import { PropTypes } from 'prop-types';
 // import ImmutablePropTypes from 'react-immutable-proptypes';
 
-import styles from './OasisWrapUnwrapUnwrap.scss';
+import OasisTokenBalanceWrapper  from '../containers/OasisTokenBalance';
 
-const propTypes = PropTypes && {};
-const defaultProps = {};
+const propTypes = PropTypes && {
+  activeWrappedToken: PropTypes.string.isRequired,
+};
+const defaultProps = {
+};
 
 class OasisWrapUnwrapUnwrap extends PureComponent {
   render() {
+    const { activeWrappedToken } = this.props;
     return (
-      <div className={styles.base}>
+      <div>
+        {<OasisTokenBalanceWrapper fromWei tokenName={activeWrappedToken}/>}
       </div>
     );
   }

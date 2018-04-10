@@ -44,9 +44,10 @@ class OasisWrapUnwrapBalances extends PureComponent {
     this.onTableRowClick = this.onTableRowClick.bind(this);
   }
 
-  onTableRowClick(rowData) {
-    const { changeRoute } = this.props;
-    changeRoute(`/wrap-unwrap/${rowData.unwrappedToken}`);
+  onTableRowClick({ unwrappedToken }) {
+    const { changeRoute, setActiveWrapUnwrappedToken } = this.props;
+    setActiveWrapUnwrappedToken(unwrappedToken);
+    changeRoute(`/wrap-unwrap/${unwrappedToken}`);
   }
 
   render() {
